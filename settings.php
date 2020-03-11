@@ -24,12 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$ADMIN->add(
-	'root',
-	new admin_externalpage(
-		'tool_recovergrades',
-		get_string('pluginname', 'tool_recovergrades'),
-		"$CFG->wwwroot/$CFG->admin/tool/recovergrades/index.php",
-		'tool/recovergrades:manage'
-	)
-);
+// TODO add config
+// $ADMIN->add(
+// 	'root',
+// 	new admin_externalpage(
+// 		'tool_recovergrades',
+// 		get_string('pluginname', 'tool_recovergrades'),
+// 		"$CFG->wwwroot/$CFG->admin/tool/recovergrades/index.php",
+// 		'tool/recovergrades:manage'
+// 	)
+// );
