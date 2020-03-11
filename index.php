@@ -32,7 +32,7 @@ $params = ['id' => $id];
 $course = $DB->get_record('course', $params, '*', MUST_EXIST);
 $context = context_course::instance($course->id, MUST_EXIST);
 require_login($course);
-$title = $course->fullname;
+$title = get_string('title', 'tool_recovergrades', $course->fullname);
 
 $PAGE->set_url('/'.$CFG->admin.'/tool/recovergrades/index.php', $params);
 $PAGE->set_pagelayout('course');

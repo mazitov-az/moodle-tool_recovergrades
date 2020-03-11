@@ -24,3 +24,4 @@
 
 $string['pluginname'] = 'Recover grades';
 $string['recovergrades:manage'] = 'Restore grades from history';
+$string['title'] = '{$a} : Recover grades';
