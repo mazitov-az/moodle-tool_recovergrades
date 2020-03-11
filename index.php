@@ -23,10 +23,22 @@
  */
 
 require __DIR__ . '/../../../config.php';
-require $CFG->libdir . '/adminlib.php';
+// require $CFG->libdir . '/adminlib.php';
+// TODO del admin_externalpage_setup
+// admin_externalpage_setup('tool_recovergrades', '', null, '', ['pagelayout' => 'report']);
+$id = optional_param('id', 0, PARAM_INT);
+$params = ['id' => $id];
 
-admin_externalpage_setup('tool_recovergrades', '', null, '', ['pagelayout' => 'report']);
+$course = $DB->get_record('course', $params, '*', MUST_EXIST);
+$context = context_course::instance($course->id, MUST_EXIST);
+require_login($course);
+$title = $course->fullname;
+
+$PAGE->set_url('/'.$CFG->admin.'/tool/recovergrades/index.php', $params);
+$PAGE->set_pagelayout('course');
+$PAGE->set_title($title);
 
 echo $OUTPUT->header();
+echo $OUTPUT->heading($title);
 
 echo $OUTPUT->footer();
